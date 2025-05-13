@@ -54,7 +54,7 @@ description: >- # this means to ignore newlines until "baseurl:"
                       objective of the conference is to:
 
 # The subpath of your site, e.g. /blog
-baseurl: "professional_alliance_group"
+baseurl: ""
 
 # The base hostname & protocol for your site, e.g. http://example.com
 url: ""
