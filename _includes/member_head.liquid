@@ -100,40 +100,26 @@
     {% include {{ '/google_analytics.liquid' | prepend: site.baseurl }} %}
 
     <!-- Meta Tags for Responsive Design -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Open Graph and Twitter meta tags -->
-    <meta property="og:title" content="Ruby Conf Africa 2024" />
-    <meta
-            property="og:description"
-            content="Join us on the 26th to 27th July 2024, as leading Ruby developers from around the world come together in Nairobi, Kenya, to share, inspire, and learn."
-    />
-    <meta
-            property="og:image"
-            content="{{ '/images/logo/arc_logo_coloured.png' | prepend: site.baseurl }}"
-    />
-    <meta property="og:url" content="https://rubyconf.africa/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Ruby Conf Africa 2024" />
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="{{ page.title | default: 'AG Group Members' }}"/>
+    <meta property="og:description" content="{{ page.description | default: 'Bridging individual skills and knowledge to create a dynamic and effective collaborative network.' }}"/>
+    <meta property="og:image" content="https://admanusgroup.com/images/agroup.png"/>
+    <meta property="og:url" content="{{ page.url | absolute_url | default: site.url }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Admanus Group"/>
 
-    <!-- Twitter OG tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-            name="twitter:title"
-            content="Ruby Conf Africa 2024: Connect, Learn, & Grow with Ruby"
-    />
-    <meta
-            name="twitter:description"
-            content="Join leading Ruby developers in Nairobi, Kenya on July 26-27, 2024 for Ruby Conf Africa. Share knowledge, gain inspiration, and network within the vibrant Ruby community."
-    />
-    <meta
-            name="twitter:image"
-            content="{{ '/images/logo/arc_logo_coloured.png' | prepend: site.baseurl }}"
-    />
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:domain" content="admanusgroup.com">
+    <meta property="twitter:url" content="https://admanusgroup.com">
+    <meta name="twitter:title" content="{{ page.title | default: 'Admanus Group: Connect, Learn, & Grow with Ruby' }}"/>
+    <meta name="twitter:description" content="{{ page.description | default: 'Bridging individual skills and knowledge to create a dynamic and effective collaborative network.' }}"/>
+    <meta name="twitter:image" content="https://admanusgroup.com/images/agroup.png"/>
+
+
 
     <!-- JSON-LD -->
     <script type="application/ld+json">

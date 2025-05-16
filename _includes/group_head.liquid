@@ -1,11 +1,11 @@
 <head>
     <meta charset="utf-8" />
     <title>
-        [Collaboration Platform Name] - Connect, Share, & Innovate
+        AG - Connect, Share, & Innovate
     </title>
     <meta
             name="description"
-            content="Explore and join collaboration groups on [Your Platform Name]. Connect with like-minded individuals, share ideas, and work together on projects."
+            content="Admanus Collaboration Group. Connect with like-minded individuals, share ideas, and work together on projects."
     />
 
     <link
@@ -46,7 +46,7 @@
             rel="manifest"
             href="{{ '/site.webmanifest' | prepend: site.baseurl }}"
     />
-    <meta name="apple-mobile-web-app-title" content="[Your Platform Name]" />
+    <meta name="apple-mobile-web-app-title" content="Admanus Group" />
     <meta
             name="apple-mobile-web-app-status-bar-style"
             content="black-translucent"
@@ -54,7 +54,7 @@
 
     <meta name="theme-color" content="#ffffff" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="[Your Platform Name]" />
+    <meta name="application-name" content="Admanus Group" />
     <link
             rel="icon"
             type="image/png"
@@ -87,55 +87,43 @@
 
     {% include {{ '/google_analytics.liquid' | prepend: site.baseurl }} %}
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
+    <!-- Meta Tags for Responsive Design -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <meta property="og:title" content="[Your Platform Name] - Discover Collaboration Groups" />
-    <meta
-            property="og:description"
-            content="Find and join diverse collaboration groups focused on [mention key areas or themes of your platform]."
-    />
-    <meta
-            property="og:image"
-            content="{{ '/images/logo/platform_logo.png' | prepend: site.baseurl }}"
-    />
-    <meta property="og:url" content="[Your Platform URL]/groups" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="[Your Platform Name]" />
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="{{ page.title | default: 'AG Collaboration Groups' }}"/>
+    <meta property="og:description" content="{{ page.description | default: 'Bridging individual skills and knowledge to create a dynamic and effective collaborative network.' }}"/>
+    <meta property="og:image" content="https://admanusgroup.com/images/agroup.png"/>
+    <meta property="og:url" content="{{ page.url | absolute_url | default: site.url }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Admanus Group"/>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-            name="twitter:title"
-            content="[Your Platform Name]: Join Innovative Collaboration Groups"
-    />
-    <meta
-            name="twitter:description"
-            content="Connect with communities, share your expertise, and collaborate on exciting projects on [Your Platform Name]."
-    />
-    <meta
-            name="twitter:image"
-            content="{{ '/images/logo/platform_logo_twitter.png' | prepend: site.baseurl }}"
-    />
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:domain" content="admanusgroup.com">
+    <meta property="twitter:url" content="https://admanusgroup.com">
+    <meta name="twitter:title" content="{{ page.title | default: 'Admanus Group' }}"/>
+    <meta name="twitter:description" content="{{ page.description | default: 'Bridging individual skills and knowledge to create a dynamic and effective collaborative network.' }}"/>
+    <meta name="twitter:image" content="https://admanusgroup.com/images/agroup.png"/>
+
 
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Collaboration Groups on [Your Platform Name]",
-            "description": "Explore and join various collaboration groups on [Your Platform Name] to connect with others and work on shared interests.",
-            "url": "[Your Platform URL]/groups",
+            "name": "Collaboration Groups on Admanus Group",
+            "description": "Explore and join various collaboration groups on Admanus Group to connect with others and work on shared interests.",
+            "url": "https://admanusgroup.com/groups",
             "potentialAction": {
                 "@type": "SearchAction",
-                "target": "[Your Platform URL]/groups?q={search_term_string}",
+                "target": "https://admanusgroup.com/groups?q={search_term_string}",
                 "query-input": "required name=search_term_string"
             },
             "publisher": {
                 "@type": "Organization",
-                "name": "[Your Organization Name]",
-                "url": "[Your Organization URL]",
+                "name": "Admanus Group",
+                "url": "https://admanusgroup.com",
                 "logo": {
                     "@type": "ImageObject",
                     "url": "https://www.marksgroup.net/blog/office-365-add-your-organization-logo-to-office-365/"
