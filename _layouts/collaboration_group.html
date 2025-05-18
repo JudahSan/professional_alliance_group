@@ -1,89 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-{% include head.liquid %}
-<body>
-<div class="page-wrapper">
-    <!-- Header and Navigation-->
-    {% include navigation.liquid %}
+---
+layout: application_group
+---
 
-    <!-- Content -->
-    <div class="content-wrapper">
-        <div class="group-header">
-            {% if page.image %}
-            <img src="{{ page.image }}" alt="{{ page.name }}" class="group-image">
-            {% endif %}
-            <h1>{{ page.name }}</h1>
-            <p class="short-description">{{ page.short_description }}</p>
-            
-            {% if page.social %}
-            <div class="social-links">
-                {% for social in page.social %}
-                <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer">
-                    <i class="fa fa-{{ social.name }}"></i>
-                </a>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-
-        <div class="group-content">
-            <div class="long-description">
-                {{ page.long_description | markdownify }}
-            </div>
-
-            {% assign group_relationships = site.data.relationships[page.name | slugify] %}
-            
-            {% if group_relationships.members.size > 0 %}
-            <div class="group-members">
-                <h2>Members</h2>
-                <div class="members-grid">
-                    {% for member_slug in group_relationships.members %}
-                        {% assign member = site.members | where: "slug", member_slug | first %}
-                        {% if member %}
-                        <div class="member-card">
-                            <img src="{{ member.image }}" alt="{{ member.name }}" class="member-image">
-                            <h3>{{ member.name }}</h3>
-                            <p class="member-title">{{ member.title }}</p>
-                            <a href="{{ member.url }}" class="member-link">View Profile</a>
-                        </div>
+<section class="speaker-detail">
+    <div class="auto-container">
+        <div class="row">
+            <div class="image-column col-lg-4 col-md-12 col-sm-12">
+                <div class="image-box">
+                    <figure class="image">
+                        <img src="{{ page.image }}" alt="{{ page.name }}" />
+                    </figure>
+                    <ul class="social-icon-two social-icon-colored text-center">
+                        {% if page.twitter and page.twitter != "" %}
+                        <li>
+                            <a href="{{ page.twitter }}" target="_blank">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                        </li>
                         {% endif %}
-                    {% endfor %}
+                        {% if page.linkedin and page.linkedin != "" %}
+                        <li>
+                            <a href="{{ page.linkedin }}" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if page.website and page.website != "" %}
+                        <li>
+                            <a href="{{ page.website }}" target="_blank">
+                                <i class="fab fa-sistrix"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
-            {% endif %}
 
-            {% if group_relationships.projects.size > 0 %}
-            <div class="group-projects">
-                <h2>Projects</h2>
-                <ul class="projects-list">
-                    {% for project in group_relationships.projects %}
-                    <li>
-                        <a href="/projects/{{ project | slugify }}">{{ project | replace: '-', ' ' | capitalize }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
+            <div class="info-column col-lg-8 col-md-12 col-sm-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title text-info-emphasis">{{ page.name }}</h3>
+                        <h5 class="text-secondary font-weight-bold">{{ page.bio }}</h5>
+                        <p class="card-text text-black">{{ page.details }}</p>
 
-            {% if page.categories.size > 0 %}
-            <div class="group-categories">
-                <h2>Categories</h2>
-                <div class="categories-tags">
-                    {% for category in page.categories %}
-                    <span class="category-tag">{{ category }}</span>
-                    {% endfor %}
+                        <h4 class="mt-4 text-info-emphasis">Projects by {{ page.name }}</h4>
+                        <div class="row">
+                            {% for project in page.projects %}
+                            <div class="col-lg-6 col-md-6 mb-3">
+                                <div class="border p-3 bg-white rounded shadow-sm">
+                                    <h5 class="text-danger-emphasis font-weight-bold">
+                                        {{ project.title }}
+                                    </h5>
+                                    {% if project.link %}
+                                    <p>
+                                        <a href="{{ project.link }}" target="_blank" class="text-info">
+                                            View Project
+                                        </a>
+                                    </p>
+                                    {% endif %}
+                                    <p class="mt-2 text-info-emphasis">
+                                        {{ project.description }}
+                                    </p>
+                                    {% if project.contributors %}
+                                    <h6 class="text-secondary">Contributors:</h6>
+                                    <ul class="list-unstyled">
+                                        {% for contributor in project.contributors %}
+                                        <li class="mb-2">
+                                            <a href="{{ contributor.permalink }}" class="text-dark d-flex align-items-center">
+                                                <img
+                                                        src="{{ contributor.image }}"
+                                                        class="rounded-circle mr-2"
+                                                        alt="{{ contributor.name }}"
+                                                        style="width: 30px; height: 30px"
+                                                />
+                                                {{ contributor.name }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
             </div>
-            {% endif %}
         </div>
     </div>
+</section>
 
-    <!-- Footer -->
-    {% include footer.liquid %}
-</div>
-
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
-{% include js.liquid %}
-</body>
-</html> 
